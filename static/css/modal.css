@@ -1,0 +1,87 @@
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(15,23,42,0.5);
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 999;
+}
+
+.modal.active{
+    display: flex;
+}
+
+/* =========================
+   MODAL CONTENT
+========================= */
+
+.modal-content{
+
+    width: 90%;
+
+    max-width: 550px;
+
+    background: white;
+
+    border-radius: var(--radius-lg);
+
+    padding: 30px;
+
+    box-shadow: var(--shadow-lg);
+}
+
+/* =========================
+   MODAL HEADER
+========================= */
+
+.modal-header{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 24px;
+}
+
+.close-btn{
+
+    border: none;
+
+    background: none;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    color: var(--text-light);
+}
+
+/* =========================
+   MODAL BUTTONS
+========================= */
+
+.modal-buttons{
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}

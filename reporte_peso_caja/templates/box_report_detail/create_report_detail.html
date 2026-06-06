@@ -1,0 +1,134 @@
+{% extends 'index.html' %}
+
+{% block main %}
+
+<div class="page-container">
+
+<!-- HEADER -->
+<div class="page-header">
+
+    <h1>📦 Registro de Producción</h1>
+
+    <p>
+        Reporte: {{ report.machine }} |
+        {{ report.get_shift_display }}
+    </p>
+
+</div>
+
+<!-- INFO -->
+<div class="report-info-card">
+
+    <p><strong>Operador:</strong> {{ report.operator_code }}</p>
+    <p><strong>Estado:</strong> {{ report.get_state_display }}</p>
+    <p><strong>Fecha:</strong> {{ report.creation_date }}</p>
+
+</div>
+
+<!-- FORMULARIO -->
+<div class="form-card">
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label>Cajas</label>
+                {{ form.box }}
+            </div>
+
+            <div class="form-group">
+                <label>Peso Total</label>
+                {{ form.weight }}
+            </div>
+
+            <div class="form-group">
+                <label>Estado</label>
+                {{ form.status }}
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Observación</label>
+            {{ form.observation }}
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="btn btn-success">
+                💾 Guardar Producción
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+<!-- DASHBOARD PRO -->
+<div class="dashboard-summary">
+
+    <div>
+        <h3>Total Cajas</h3>
+        <p>{{ total_boxes }}</p>
+    </div>
+
+    <div>
+        <h3>Peso Total</h3>
+        <p>{{ total_weight }}</p>
+    </div>
+
+</div>
+
+<!-- HISTORIAL -->
+<h2>Historial de Producción</h2>
+
+<table class="custom-table">
+
+    <thead>
+        <tr>
+            <th>Operador</th>
+            <th>Cajas</th>
+            <th>Peso</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for detail in details %}
+
+        <tr>
+            <td>{{ detail.registered_by }}</td>
+            <td>{{ detail.box }}</td>
+            <td>{{ detail.weight }}</td>
+
+            <td>{{ detail.start_time|date:"H:i:s" }}</td>
+
+            <td>
+                {% if detail.end_time %}
+                    {{ detail.end_time|date:"H:i:s" }}
+                {% else %}
+                    En proceso...
+                {% endif %}
+            </td>
+
+            <td>{{ detail.get_status_display }}</td>
+        </tr>
+
+        {% empty %}
+        <tr>
+            <td colspan="6">No existen registros.</td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

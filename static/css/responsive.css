@@ -1,0 +1,64 @@
+
+@media(max-width: 992px){
+
+    .sidebar{
+
+        width: 100px;
+    }
+
+    .main-content{
+
+        margin-left: 100px;
+    }
+
+    .sidebar-logo h2{
+
+        font-size: 18px;
+    }
+
+    .sidebar-menu a{
+
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 768px){
+
+    .sidebar{
+
+        display: none;
+    }
+
+    .main-content{
+
+        margin-left: 0;
+
+        padding: 20px;
+    }
+
+    .topbar{
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        align-items: flex-start;
+    }
+
+    .dashboard-header{
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .reports-grid{
+
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content{
+
+        width: 95%;
+    }
+}

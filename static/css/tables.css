@@ -1,0 +1,57 @@
+
+/* =========================
+   TABLE
+========================= */
+
+.table-container{
+
+    overflow-x: auto;
+}
+
+.table{
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+
+    border-radius: var(--radius-lg);
+
+    overflow: hidden;
+}
+
+.table thead{
+
+    background: #f8fafc;
+}
+
+.table th{
+
+    text-align: left;
+
+    padding: 16px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: var(--text);
+}
+
+.table td{
+
+    padding: 16px;
+
+    border-top:
+        1px solid var(--border);
+
+    font-size: 14px;
+
+    color: var(--text-light);
+}
+
+.table tbody tr:hover{
+
+    background: #f8fafc;
+}

@@ -1,0 +1,518 @@
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard{
+
+    max-width: 1600px;
+
+    margin: 0 auto;
+
+    padding: 30px;
+}
+
+/* =========================
+   DASHBOARD CONTENT
+========================= */
+
+.dashboard-content{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.dashboard-header{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+.dashboard-header h3{
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    color:
+        #111827;
+}
+
+/* =========================
+   TURNO SELECTOR
+========================= */
+
+.turno-selector{
+
+    display: flex;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+/* =========================
+   TURNO BUTTON
+========================= */
+
+.turno-btn{
+
+    min-width: 200px;
+
+    padding: 18px 20px;
+
+    border-radius: 18px;
+
+    border:
+        1px solid #e5e7eb;
+
+    background: white;
+
+    color:
+        #111827;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        all .3s ease;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,.03);
+}
+
+.turno-btn:hover{
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,.06);
+}
+
+/* ACTIVE */
+
+.turno-btn.active{
+
+    background:
+        var(--primary);
+
+    color: white;
+
+    border-color:
+        var(--primary);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+
+    border: none;
+
+    padding: 14px 22px;
+
+    border-radius: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        all .3s ease;
+}
+
+/* NEW BUTTON */
+
+.btn-new{
+
+    background:
+        var(--primary);
+
+    color: white;
+}
+
+.btn-new:hover{
+
+    background:
+        var(--primary-dark);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 24px rgba(37,99,235,.18);
+}
+
+/* CANCEL */
+
+.btn-cancel{
+
+    background:
+        #f3f4f6;
+
+    color:
+        #374151;
+}
+
+.btn-cancel:hover{
+
+    background:
+        #e5e7eb;
+
+    transform:
+        translateY(-2px);
+}
+
+/* =========================
+   REPORT GRID
+========================= */
+
+.reports-grid{
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 22px;
+}
+
+/* =========================
+   REPORT CARD
+========================= */
+
+.report-card{
+
+    background: white;
+
+    border:
+        1px solid #e5e7eb;
+
+    border-radius: 24px;
+
+    padding: 24px;
+
+    transition:
+        all .3s ease;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.04);
+}
+
+.report-card:hover{
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.08);
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.5);
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+}
+
+/* ACTIVE */
+
+.modal.active{
+
+    display: flex;
+}
+
+/* =========================
+   MODAL CONTENT
+========================= */
+
+.modal-content{
+
+    width: 100%;
+
+    max-width: 650px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 32px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.2);
+
+    animation:
+        modalFade .3s ease;
+}
+
+/* =========================
+   MODAL HEADER
+========================= */
+
+.modal-header{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+.modal-header h3{
+
+    font-size: 30px;
+
+    color:
+        #111827;
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.close-btn{
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        #f3f4f6;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition:
+        all .3s ease;
+}
+
+.close-btn:hover{
+
+    background:
+        #e5e7eb;
+
+    transform:
+        rotate(90deg);
+}
+
+/* =========================
+   FORM GROUP
+========================= */
+
+.form-group{
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 22px;
+}
+
+/* =========================
+   LABELS
+========================= */
+
+.form-group label{
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+
+    color:
+        #374151;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border:
+        1px solid #d1d5db;
+
+    border-radius: 14px;
+
+    background:
+        #f9fafb;
+
+    font-size: 15px;
+
+    transition:
+        all .3s ease;
+
+    outline: none;
+}
+
+/* FOCUS */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    border-color:
+        var(--primary);
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(37,99,235,.12);
+}
+
+/* =========================
+   TEXTAREA
+========================= */
+
+.form-group textarea{
+
+    resize: vertical;
+
+    min-height: 120px;
+}
+
+/* =========================
+   MODAL BUTTONS
+========================= */
+
+.modal-buttons{
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 14px;
+
+    margin-top: 30px;
+
+    flex-wrap: wrap;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes modalFade{
+
+    from{
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to{
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 768px){
+
+    .dashboard{
+
+        padding: 20px;
+    }
+
+    .dashboard-header{
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .turno-selector{
+
+        flex-direction: column;
+    }
+
+    .turno-btn{
+
+        width: 100%;
+    }
+
+    .modal-content{
+
+        padding: 24px;
+    }
+
+    .modal-buttons{
+
+        flex-direction: column;
+    }
+
+    .btn{
+
+        width: 100%;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.report-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}

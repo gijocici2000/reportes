@@ -1,0 +1,97 @@
+```html
+{% extends 'index.html' %}
+
+{% block main %}
+
+<div class="page-container">
+
+    <div class="table-header">
+
+        <h1>
+            📦 Producción del Turno
+        </h1>
+
+        <a href="{% url 'create_detail_report' report.id %}"
+           class="btn btn-primary">
+
+            + Registrar Producción
+
+        </a>
+
+    </div>
+
+    <div class="table-container">
+
+        <table class="custom-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Operador</th>
+                    <th>Hora Inicio</th>
+                    <th>Hora Fin</th>
+                    <th>Cajas</th>
+                    <th>Peso</th>
+                    <th>Estado</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for detail in details %}
+
+                <tr>
+
+                    <td>
+
+                        {{ detail.registered_by.code }}
+
+                    </td>
+
+                    <td>
+
+                        {{ detail.start_time }}
+
+                    </td>
+
+                    <td>
+
+                        {{ detail.end_time }}
+
+                    </td>
+
+                    <td>
+
+                        {{ detail.box }}
+
+                    </td>
+
+                    <td>
+
+                        {{ detail.weight }}
+
+                    </td>
+
+                    <td>
+
+                        {{ detail.get_status_display }}
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}
+```

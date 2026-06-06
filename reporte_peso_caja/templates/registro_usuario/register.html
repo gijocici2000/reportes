@@ -1,0 +1,116 @@
+```html
+{% extends 'index.html' %}
+
+{% block main %}
+
+<div class="auth-container">
+
+    <div class="auth-card card-custom register-card">
+
+        <div class="auth-header">
+
+            <h2>
+                👤 Registrar Usuario
+            </h2>
+
+            <p>
+                Completa la información para crear
+                una nueva cuenta en el sistema.
+            </p>
+
+        </div>
+
+        <!-- MENSAJES -->
+        {% if messages %}
+
+            {% for message in messages %}
+
+                <div class="custom-alert alert-{{ message.tags }}">
+
+                    {{ message }}
+
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+        <!-- ERRORES -->
+        {% if form.errors %}
+
+            <div class="custom-alert alert-danger-custom">
+
+                Por favor corrige los errores del formulario.
+
+            </div>
+
+        {% endif %}
+
+        <!-- FORM -->
+        <form method="post"
+              class="custom-form"
+              novalidate>
+
+            {% csrf_token %}
+
+            {% for field in form %}
+
+                <div class="form-group-custom">
+
+                    <label for="{{ field.id_for_label }}">
+
+                        {{ field.label }}
+
+                    </label>
+
+                    {{ field }}
+
+                    {% if field.help_text %}
+
+                        <small class="help-text">
+
+                            {{ field.help_text }}
+
+                        </small>
+
+                    {% endif %}
+
+                    {% for error in field.errors %}
+
+                        <small class="field-error">
+
+                            {{ error }}
+
+                        </small>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endfor %}
+
+            <button type="submit"
+                    class="btn-custom btn-primary register-btn">
+
+                ➕ Registrar Usuario
+
+            </button>
+
+        </form>
+
+        <div class="auth-footer">
+
+            <a href="{% url 'login' %}">
+
+                ¿Ya tienes una cuenta? Inicia sesión
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+```

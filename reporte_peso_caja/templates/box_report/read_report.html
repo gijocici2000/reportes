@@ -1,0 +1,99 @@
+
+{% extends 'index.html' %}
+
+{% block main %}
+
+<div class="page-container">
+
+    <div class="table-header">
+
+        <h1>
+            📊 Reportes
+        </h1>
+
+        <a href="{% url 'create_report' %}"
+           class="btn btn-primary">
+
+            + Nuevo Reporte
+
+        </a>
+
+    </div>
+
+    <div class="table-container">
+
+        <table class="custom-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Turno</th>
+                    <th>Máquina</th>
+                    <th>Estado</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for report in reports %}
+
+                <tr>
+
+                    <td>
+                        {{ report.id }}
+                    </td>
+
+                    <td>
+                        {{ report.get_shift_display }}
+                    </td>
+
+                    <td>
+                        {{ report.machine }}
+                    </td>
+
+                    <td>
+                        {{ report.get_state_display }}
+                    </td>
+
+                    <td>
+                        {{ report.creation_date }}
+                    </td>
+
+                    <td>
+
+                        <a href="{% url 'read_detail_report' report.id %}"
+                           class="btn btn-info">
+
+                            Ver Producción
+
+                        </a>
+
+                        <a href="{% url 'update_report' report.id %}"
+                           class="btn btn-warning">
+
+                            Editar
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

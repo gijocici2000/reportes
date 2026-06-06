@@ -1,0 +1,59 @@
+```html id="s4z3wc"
+{% extends 'index.html' %}
+
+{% block main %}
+
+<div class="auth-container">
+
+    <div class="auth-card card-custom unauthorized-card">
+
+        <div class="unauthorized-icon">
+
+            🚫
+
+        </div>
+
+        <div class="auth-header">
+
+            <h2>
+                Acceso No Autorizado
+            </h2>
+
+            <p>
+                No tienes permisos suficientes para
+                acceder a esta página del sistema.
+            </p>
+
+        </div>
+
+        <div class="info-message warning-message">
+
+            Verifica tus permisos o inicia sesión
+            con una cuenta autorizada.
+
+        </div>
+
+        <div class="auth-actions">
+
+            <a href="{% url 'index' %}"
+               class="btn-custom btn-primary">
+
+                🏠 Volver al inicio
+
+            </a>
+
+            <a href="{% url 'login' %}"
+               class="btn-custom btn-secondary-custom">
+
+                🔑 Iniciar sesión
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+```

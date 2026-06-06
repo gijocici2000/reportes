@@ -1,0 +1,105 @@
+{% extends 'index.html' %}
+
+{% block main %}
+
+<div class="dashboard">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <div class="dashboard-header">
+
+        <h3>Reportes por Turno</h3>
+
+        <div class="turno-selector">
+
+            <button class="turno-btn active" onclick="selectTurno('shift1', this)">
+
+                    Turno 1 (07:00 - 15:00)
+
+                </button>
+
+                <button class="turno-btn" onclick="selectTurno('shift2', this)">
+
+                    Turno 2 (15:00 - 23:00)
+
+                </button>
+
+                <button class="turno-btn" onclick="selectTurno('shift3', this)">
+
+                    Turno 3 (07:00 - 19:00)
+
+                </button>
+
+                <button class="turno-btn" onclick="selectTurno('shift4', this)">
+
+                    Turno 4 (19:00 - 07:00)
+
+                </button>
+
+        </div>
+
+        <!-- 🔥 PASAMOS EL TURNO ACTUAL -->
+        <a id="createReportBtn"
+           href="{% url 'create_report' %}?shift=shift1"
+           class="btn btn-new">
+            + Nuevo Reporte
+        </a>
+
+    </div>
+
+    <!-- =========================
+         REPORTES
+    ========================== -->
+    <div id="reportsContainer" class="reports-grid">
+
+        {% for report in reports %}
+
+        <div class="report-card"
+             data-shift="{{ report.shift }}">
+
+            <h3>{{ report.machine }}</h3>
+
+            <p><strong>Estado:</strong> {{ report.get_state_display }}</p>
+
+            <p><strong>Operador:</strong> {{ report.operator_code }}</p>
+
+            <p><strong>presentacion:</strong> {{ report.presentation }}</p>
+
+            <p><strong>Fecha:</strong> {{ report.creation_date|date:"d/m/Y H:i" }}</p>
+
+            <p><strong>Observación:</strong> {{ report.observation }}</p>
+
+            <div class="report-actions">
+                <a href="{% url 'create_report_detail' report.id %}" class="btn btn-primary">
+                    + Detalle
+                </a>
+            </div>
+
+        </div>
+
+        {% empty %}
+        <div class="empty-state">
+            <p>No hay reportes.</p>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<script>
+    // 🔥 actualizar link dinámicamente
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const btn = document.getElementById('createReportBtn');
+
+        const shift = sessionStorage.getItem('currentShift') || 'shift1';
+
+        if (btn) {
+            btn.href = `{% url 'create_report' %}?shift=` + shift;
+        }
+    });
+</script>
+
+{% endblock %}

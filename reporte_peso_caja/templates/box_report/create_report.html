@@ -1,0 +1,87 @@
+{% extends 'index.html' %}
+
+{% block main %}
+
+<div class="page-container">
+
+    <div class="page-header">
+
+        <h1>📋 Nuevo Reporte</h1>
+
+        <p>Registrar nuevo turno de producción</p>
+
+    </div>
+
+    <div class="form-card">
+
+        <form method="POST" action="">
+
+            {% csrf_token %}
+
+            <!-- ERRORES GENERALES -->
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Turno</label>
+                    {{ form.shift }}
+                    {{ form.shift.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label>Operador</label>
+                    {{ form.operator_code }}
+                    {{ form.operator_code.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label>Presentacion</label>
+                    {{ form.presentation }}
+                    {{ form.presentation.errors }}
+                    
+                </div>
+
+                <div class="form-group">
+                    <label>Máquina</label>
+                    {{ form.machine }}
+                    {{ form.machine.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label>Estado</label>
+                    {{ form.state }}
+                    {{ form.state.errors }}
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label>Observación</label>
+                {{ form.observation }}
+                {{ form.observation.errors }}
+            </div>
+
+            <div class="form-buttons">
+
+                <button type="submit" class="btn btn-success">
+                    💾 Crear Reporte
+                </button>
+
+                <a href="{% url 'dashboard' %}" class="btn btn-secondary">
+                    Cancelar
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

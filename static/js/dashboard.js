@@ -100,3 +100,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showHistoryByShift();
 });
+
+
+
+// ===============================
+// count box
+// ===============================
+
+
+
+const cajas = document.getElementById('id_box');
+const incremento = document.getElementById('id_incremento');
+
+incremento.addEventListener('change', function() {
+    cajas.step = this.value;
+});

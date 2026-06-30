@@ -29,6 +29,21 @@ class Employee(models.Model):
     
 
 
+class Machine(models.Model):
+    
+    MACHINE_CHOICES = [
+        ('STICKPACK', 'STICKPACK'),
+        ('MULTIPACK1', 'MULTIPACK1'),
+        ('MULTIPACK2', 'MULTIPACK2'),
+        ('MESPACK', 'MESPACK '),
+        ('FLEXPACK0', 'FLEXPACK0'),
+        ('FLEXPACK1', 'FLEXPACK1'),
+        ('FLEXPACK2', 'FLEXPACK2'),
+        ('FLEXPACK3', 'FLEXPACK3'),
+        ('VOLPACK', 'VOLPACK'),
+    ]
+
+    name = models.Choices(MACHINE_CHOICES)
 
 
 
@@ -47,17 +62,7 @@ class Report(models.Model):
         ('reparacion', 'Reparación'),
         ('parada', 'Parada'),
     ]
-    MACHINE_CHOICES = [
-        ('STICKPACK', 'STICKPACK'),
-        ('MULTIPACK1', 'MULTIPACK1'),
-        ('MULTIPACK2', 'MULTIPACK2'),
-        ('MESPACK', 'MESPACK '),
-        ('FLEXPACK0', 'FLEXPACK0'),
-        ('FLEXPACK1', 'FLEXPACK1'),
-        ('FLEXPACK2', 'FLEXPACK2'),
-        ('FLEXPACK3', 'FLEXPACK3'),
-        ('VOLPACK', 'VOLPACK'),
-    ]
+
 
     PRESENTATION = [
         ('Cafe oro 15', 'Cafe oro 15'),
@@ -73,8 +78,8 @@ class Report(models.Model):
     operator_code =models.ForeignKey(Employee, on_delete=models.CASCADE)
     
     
-    machine = models.CharField(
-        max_length=200,choices=MACHINE_CHOICES,
+    machine = models.ForeignKey(Machine, on_delete=models.CASCADE
+        
     )
     presentation = models.CharField(
         max_length=200,choices=PRESENTATION,null=False, blank=False

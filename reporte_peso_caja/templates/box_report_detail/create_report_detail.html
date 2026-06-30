@@ -37,7 +37,14 @@
                 <label>Cajas</label>
                 {{ form.box }}
             </div>
-
+            <div class="form-group">
+                <label>Incremento</label>
+            <select id="id_incremento">
+                <option value="1">1 en 1</option>
+                <option value="5">5 en 5</option>
+                <option value="10">10 en 10</option>
+            </select> 
+            </div>
             <div class="form-group">
                 <label>Peso Total</label>
                 {{ form.weight }}
@@ -94,7 +101,7 @@
             <th>Fin</th>
             <th>Estado</th>
         </tr>
-    </thead>
+    </thead>                                                                                                                                
 
     <tbody>
 
